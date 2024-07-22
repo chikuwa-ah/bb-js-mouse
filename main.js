@@ -214,6 +214,11 @@ function keyDownHandler(e) {
     }
 }
 
+document.addEventListener('mousemove', mouseMove, false);
+
+function mouseMove(e) {
+    PDx = e.offsetX - (PDw / 2) + 8
+}
 
 //CLASSES
 
@@ -253,7 +258,7 @@ function ballAdd() {
     let ball_x = 500;
     let ball_y = 700;
     let ball_dx = -0;
-    let ball_dy = -2;
+    let ball_dy = -7;
 
     let b = new Ball(ball_x, ball_y, ball_dx, ball_dy);
     ball.push(b);
