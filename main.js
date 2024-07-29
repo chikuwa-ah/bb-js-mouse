@@ -2,101 +2,17 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let temp = [
-    [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ], [
-        [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0]
-    ], [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ], [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-
-    ], [
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
-    ], [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
-        [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
-        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ], [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ], [
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
-    ], [
-        [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
-    ]
-
-];
-
 let block_color = ['#fff', '#00f', '#0f9', '#ff0', '#f90', '#f00'];
 let item_color = ['#0ff', '#0f0', '#00f', '#f0f', '#f00', '#ff0'];
 let item_cmp = ['#f00', '#f0f', '#ff0', '#0f0', '#0ff', '#00f'];
-let item__letter = ['S', 'W', 'N', 'B', 'F', 'L'];
+let item__letter = ['S', 'W', 'N', 'B', 'F', 'O'];
 
 let round_select = [];
+let high_score = 0;
 
 let level;
 let PDx, PDy, PDw;
-let lv_score = 0, score = 0, round = 1;
+let lv_score = 0, score = 0, round = 1, life = 2;
 let game_flag = 0;
 let level_up = [];
 
@@ -116,7 +32,7 @@ function init() {
     ctx.fillRect(20, 20, 15, canvas.height);
     ctx.fillRect(canvas.width - 40, 20, 15, canvas.height);
     ctx.fillRect(20, 20, canvas.width - 45, 15);
-    ctx.fillRect(80, 695, 120, 15);
+    ctx.fillRect(80, 695, 100, 15);
 
     ctx.fillStyle = '#eee';
     ctx.font = 'bold 40px sans-serif';
@@ -124,9 +40,12 @@ function init() {
     textWidth = ctx.measureText(text).width;
     ctx.fillText(text, (canvas.width - textWidth) / 2, 450);
 
+    ctx.font = 'bold 20px sans-serif';
+    ctx.fillText('HIGH SCORE : ' + high_score, 50, canvas.height - 5);
+
     game_flag = 0;
-    lv_score = 0, score = 0, round = 1, level_up = [];
-    PDx = 80, PDy = 695, PDw = 120;
+    lv_score = 0, score = 0, round = 1, level_up = [], life = 3;
+    PDx = 80, PDy = 695, PDw = 100;
     for (let i = 0; i < temp.length; i++) {
         round_select[i] = 1;
     };
@@ -138,6 +57,18 @@ function start() {
     level = 0, lv_score = 0;
     let block_length = 0;
     item_inBlock = [];
+    let rest_round = 0;
+
+    for (let i = 0; i < round_select.length; i++) {
+        if (round_select[i] == 1) {
+            rest_round++;
+        }
+    }
+
+    if (rest_round == 0) {
+        all_clear();
+        return;
+    }
 
     let stage = Math.floor(Math.random() * temp.length);
     while (round_select[stage] == 0) {
@@ -161,10 +92,10 @@ function start() {
         x = 45, y += 40;
     };
 
-    PDx = 80, PDy = 695, PDw = 120;
+    PDx = 80, PDy = 695, PDw = 100;
+    ballAdd(0, -2.6);
     let able = block_length;
     let ls = [];
-    ballAdd();
     for (let i = 0; i < 6; i++) {
         able = block_length / 6;
         block_length -= able;
@@ -211,11 +142,13 @@ function main() {
                         } else {
                             item_inBlock[j].dx *= -1;
                         };
+                        break;
                     };
                 }
             }
         };
     };
+
 
     if (item_inBlock.length > 0) {
         for (let i = 0; i < item_inBlock.length; i++) {
@@ -246,8 +179,16 @@ function main() {
                     item_inBlock[i].x = 35 + 12;
                 };
             };
+
+            res = collision(PDx, PDx + PDw, PDy, PDy + 15, item_inBlock[i].x, item_inBlock[i].y, 12);
+            if (res != false) {
+                item_get(item_inBlock[i].type);
+                item_inBlock.splice(i, 1);
+            }
+
         }
     }
+
 
     ctx.fillStyle = '#fff';
     //PADDLE
@@ -274,14 +215,13 @@ function main() {
                     } else {
                         ball[i].dx *= -1;
                     };
-                    score++;
+                    score += round;
                     lv_score++;
                     break;
                 };
             } else {
                 if (block_state[j].item >= 1) {
                     itemAdd(block_state[j].x, block_state[j].y, block_state[j].item);
-                    console.log('item', block_state[j].item);
                 };
                 block_state.splice(j, 1);
             };
@@ -337,8 +277,15 @@ function main() {
 
     ctx.font = 'bold 20px sans-serif';
     ctx.fillStyle = '#fff';
-    ctx.fillText('SCORE : ' + score, 50, canvas.height - 5)
+    ctx.fillText('SCORE : ' + score, 50, canvas.height - 5);
     ctx.fillText('ROUND : ' + round, 790, canvas.height - 5);
+
+    ctx.beginPath();
+    for (let i = 0; i < life; i++) {
+        ctx.arc((i * 30) + 300, canvas.height - 12, 10, 0, 2 * Math.PI);
+    }
+    ctx.closePath();
+    ctx.fill();
 
     if (block_state.length == 0) {
         window.cancelAnimationFrame(id);
@@ -346,14 +293,74 @@ function main() {
     };
     if (ball.length == 0) {
         window.cancelAnimationFrame(id);
-        block_state = [];
-        setTimeout(over, 1500);
+        if (life == 0) {
+            block_state = [];
+            setTimeout(over, 1500);
+        } else {
+            life--;
+            PDw = 100;
+            item_inBlock = [];
+            ballAdd(0, -2.6);
+
+            level = 0, lv_score = 0;
+            let block_length = block_state.length;
+            let able = block_state.length;
+            let ls = [];
+            for (let i = 0; i < 6; i++) {
+                able = block_length / 6;
+                block_length -= able;
+                ls.push(Math.floor(able));
+            };
+            let k = 0;
+            for (let i = 0; i < ls.length; i++) {
+                k += ls[5 - i];
+                level_up[i] = k;
+            };
+            console.log(level_up, ls);
+            setTimeout(main, 1000);
+        }
     };
 };
+
+function item_get(type) {
+    if (type == 1) {
+        score += 1000;
+        return;
+    }
+    if (type == 2) {
+        PDw = 140;
+        return;
+    }
+    if (type == 3) {
+        PDw = 60;
+        return;
+    }
+    if (type == 4) {
+        let dy = ((Math.random() * 4) + 3) * -1;
+        let dx = (Math.random() * (dy * 2)) - dy;
+        ballAdd(dx, dy);
+        return;
+    }
+    if (type == 5) {
+        for (let i = 0; i < ball.length; i++) {
+            if (ball[i].dy > 0) {
+                ball[i].dy += 0.8;
+            } else {
+                ball[i].dy -= 0.8;
+            };
+        };
+        return;
+    }
+    if (type == 6) {
+        PDw = 100;
+        return;
+    }
+}
 
 function round_clear() {
     ball = [];
     item_inBlock = [];
+    block_state = [];
     lv_score = 0;
     round++;
     start();
@@ -435,9 +442,17 @@ function over() {
     ctx.fillRect(canvas.width - 40, 20, 15, canvas.height);
     ctx.fillRect(20, 20, canvas.width - 45, 15);
     ctx.fillRect(PDx, PDy, PDw, 15);
+    let text, textWidth;
+    if (score > high_score) {
+        high_score = score;
+        ctx.font = 'bold 50px sans-serif';
+        text = 'HIGH SCORE!';
+        textWidth = ctx.measureText(text).width;
+        ctx.fillText(text, (canvas.width - textWidth) / 2, 180);
+    }
     ctx.font = 'bold 80px sans-serif';
-    let text = 'GAME OVER';
-    let textWidth = ctx.measureText(text).width;
+    text = 'GAME OVER';
+    textWidth = ctx.measureText(text).width;
     ctx.fillText(text, (canvas.width - textWidth) / 2, 280);
     ctx.font = 'bold 50px sans-serif';
     text = 'SCORE : ' + score;
@@ -446,6 +461,37 @@ function over() {
     text = 'ROUND : ' + round;
     textWidth = ctx.measureText(text).width;
     ctx.fillText(text, (canvas.width - textWidth) / 2, 450);
+    ctx.font = 'bold 60px sans-serif';
+    ctx.fillStyle = '#DDD';
+    text = 'PRESS ENTER';
+    textWidth = ctx.measureText(text).width;
+    ctx.fillText(text, (canvas.width - textWidth) / 2, 550);
+    game_flag = 1;
+
+};
+
+function all_clear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#FFF';
+    ctx.fillRect(20, 20, 15, canvas.height);
+    ctx.fillRect(canvas.width - 40, 20, 15, canvas.height);
+    ctx.fillRect(20, 20, canvas.width - 45, 15);
+    ctx.fillRect(PDx, PDy, PDw, 15);
+    ctx.font = 'bold 80px sans-serif';
+    let text = 'ALL CLEAR!!!';
+    let textWidth = ctx.measureText(text).width;
+    ctx.fillText(text, (canvas.width - textWidth) / 2, 280);
+    if (score > high_score) {
+        high_score = score;
+        ctx.font = 'bold 50px sans-serif';
+        text = 'HIGH SCORE!!!';
+        textWidth = ctx.measureText(text).width;
+        ctx.fillText(text, (canvas.width - textWidth) / 2, 180);
+    }
+    ctx.font = 'bold 50px sans-serif';
+    text = 'SCORE : ' + score;
+    textWidth = ctx.measureText(text).width;
+    ctx.fillText(text, (canvas.width - textWidth) / 2, 420);
     ctx.font = 'bold 60px sans-serif';
     ctx.fillStyle = '#DDD';
     text = 'PRESS ENTER';
@@ -491,11 +537,11 @@ class Ball {
 };
 
 let ball = [];
-function ballAdd() {
+function ballAdd(dx, dy) {
     let ball_x = 520;
     let ball_y = 700;
-    let ball_dx = 0;
-    let ball_dy = -2;
+    let ball_dx = dx;
+    let ball_dy = dy;
 
     let b = new Ball(ball_x, ball_y, ball_dx, ball_dy);
     ball.push(b);
@@ -516,7 +562,7 @@ function itemAdd(x, y, type) {
     let item_x = x + 33;
     let item_y = y + 15;
     let item_dx = 0;
-    if (Math.floor(Math.random() * 10) > 6) {
+    if (Math.floor(Math.random() * 10) > 3) {
         item_dx = (Math.random() * 7) - 3;
     }
     let item_dy = 3;
